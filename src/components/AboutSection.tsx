@@ -62,7 +62,7 @@ const AboutSection: React.FC = () => {
               {/* CV Download Button */}
               <div className="pt-4">
                 <a
-                  href="./my-portfolio/public/Shayan_Bali_CV_17july.pdf"
+                  href="public/Shayan_Bali_CV_17july.pdf"
                   download="Shayan_Bali_CV_17july.pdf"
                   className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium hover:scale-105 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group"
                 >
