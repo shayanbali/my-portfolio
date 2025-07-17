@@ -1,7 +1,10 @@
 import React from 'react';
 import { Briefcase, Calendar, MapPin, Building } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const ExperienceSection: React.FC = () => {
+  const [titleRef, titleVisible] = useScrollAnimation();
+
   const experiences = [
     {
       role: 'Research Assistant',
@@ -24,7 +27,7 @@ const ExperienceSection: React.FC = () => {
     {
       role: 'ML Engineer',
       company: 'Asa Co.',
-      period: '2022 – 2023',
+      period: '2023',
       location: 'Tehran, Iran',
       description: 'Developed and deployed NLP pipeline systems using transformer architectures for various language processing tasks.',
       technologies: ['NLP', 'Transformers', 'Python', 'PyTorch', 'Pipeline Development'],
@@ -51,10 +54,10 @@ const ExperienceSection: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="pt-24 pb-20 bg-white dark:bg-gray-900">
+    <section id="experience" className="pt-24 pb-20 bg-white dark:bg-gray-900" ref={titleRef}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 scroll-animate ${titleVisible ? 'animate-fade-in-up' : ''}`}>
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Experience
             </h2>
@@ -62,59 +65,69 @@ const ExperienceSection: React.FC = () => {
           </div>
 
           <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <div key={index} className="relative">
-                <div className="flex items-start space-x-6">
-                  <div className={`flex-shrink-0 w-12 h-12 ${exp.color} rounded-full flex items-center justify-center`}>
-                    <Briefcase size={24} className="text-white" />
-                  </div>
-                  
-                  <div className="flex-1 bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-3 hover:bg-white dark:hover:bg-gray-700 transition-all duration-500 border border-transparent hover:border-blue-200 dark:hover:border-blue-800 group">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                        {exp.role}
-                      </h3>
-                      <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-300 mt-2 md:mt-0">
-                        <div className="flex items-center space-x-1">
-                          <Calendar size={16} />
-                          <span>{exp.period}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <MapPin size={16} />
-                          <span>{exp.location}</span>
+            {experiences.map((exp, index) => {
+              const [expRef, expVisible] = useScrollAnimation(0.2);
+              
+              return (
+                <div 
+                  key={index} 
+                  className="relative"
+                  ref={expRef}
+                >
+                  <div className="flex items-start space-x-6">
+                    <div className={`flex-shrink-0 w-12 h-12 ${exp.color} rounded-full flex items-center justify-center`}>
+                      <Briefcase size={24} className="text-white" />
+                    </div>
+                    
+                    <div className={`flex-1 bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-3 hover:bg-white dark:hover:bg-gray-700 transition-all duration-500 border border-transparent hover:border-blue-200 dark:hover:border-blue-800 group scroll-animate ${expVisible ? 'animate-fade-in-left' : ''}`}
+                         style={{ animationDelay: `${index * 200}ms` }}>
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                          {exp.role}
+                        </h3>
+                        <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-300 mt-2 md:mt-0">
+                          <div className="flex items-center space-x-1">
+                            <Calendar size={16} />
+                            <span>{exp.period}</span>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <MapPin size={16} />
+                            <span>{exp.location}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    
-                    <div className="flex items-center space-x-2 mb-3">
-                      <Building size={18} className="text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300" />
-                      <h4 className="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                        {exp.company}
-                      </h4>
-                    </div>
-                    
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                      {exp.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm rounded-full hover:bg-blue-200 dark:hover:bg-blue-800/50 hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer hover:shadow-md"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                      
+                      <div className="flex items-center space-x-2 mb-3">
+                        <Building size={18} className="text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300" />
+                        <h4 className="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                          {exp.company}
+                        </h4>
+                      </div>
+                      
+                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                        {exp.description}
+                      </p>
+                      
+                      <div className="flex flex-wrap gap-2">
+                        {exp.technologies.map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm rounded-full hover:bg-blue-200 dark:hover:bg-blue-800/50 hover:scale-105 hover:-translate-y-1 transition-all duration-300 cursor-pointer hover:shadow-md"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
+                  
+                  {index < experiences.length - 1 && (
+                    <div className={`absolute left-6 top-12 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-600 scroll-animate ${expVisible ? 'animate-fade-in' : ''}`}
+                         style={{ animationDelay: `${index * 200 + 100}ms` }}></div>
+                  )}
                 </div>
-                
-                {index < experiences.length - 1 && (
-                  <div className="absolute left-6 top-12 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-600"></div>
-                )}
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

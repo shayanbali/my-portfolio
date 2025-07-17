@@ -1,7 +1,11 @@
 import React from 'react';
 import { Code, ExternalLink, Github } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const ProjectsSection: React.FC = () => {
+  const [titleRef, titleVisible] = useScrollAnimation();
+  const [contentRef, contentVisible] = useScrollAnimation();
+
   const projects = [
     {
       title: 'Persian Summarization with BERT',
@@ -54,17 +58,17 @@ const ProjectsSection: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="pt-24 pb-20 bg-gray-50 dark:bg-gray-800">
+    <section id="projects" className="pt-24 pb-20 bg-gray-50 dark:bg-gray-800" ref={titleRef}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 scroll-animate ${titleVisible ? 'animate-fade-in-up' : ''}`}>
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Projects
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-animate ${contentVisible ? 'animate-scale-in' : ''}`} ref={contentRef}>
             {projects.map((project, index) => (
               <div key={index} className="bg-white dark:bg-gray-900 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 overflow-hidden border border-transparent hover:border-blue-200 dark:hover:border-blue-800 group cursor-pointer">
                 <div className={`h-2 ${project.color} group-hover:h-4 transition-all duration-300`}></div>

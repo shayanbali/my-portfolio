@@ -1,19 +1,24 @@
 import React from 'react';
 import { User, MapPin, GraduationCap, Mail, Phone } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const AboutSection: React.FC = () => {
+  const [titleRef, titleVisible] = useScrollAnimation();
+  const [contentRef, contentVisible] = useScrollAnimation();
+  const [statsRef, statsVisible] = useScrollAnimation();
+
   return (
-    <section id="about" className="pt-24 pb-20 bg-white dark:bg-gray-900">
+    <section id="about" className="pt-24 pb-20 bg-white dark:bg-gray-900" ref={titleRef}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 scroll-animate ${titleVisible ? 'animate-fade-in-up' : ''}`}>
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               About Me
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className={`grid lg:grid-cols-2 gap-12 items-center mb-16 scroll-animate ${contentVisible ? 'animate-fade-in-left' : ''}`} ref={contentRef}>
             {/* Profile Photo Section */}
             <div className="flex flex-col items-center space-y-6">
               <div className="relative">
@@ -57,7 +62,8 @@ const AboutSection: React.FC = () => {
               {/* CV Download Button */}
               <div className="pt-4">
                 <a
-                  href="public/Shayan_Bali_CV_17july.pdf"
+                  href="../../public/Shayan_Bali_CV_july.pdf
+                  "
                   download="Shayan_Bali_CV_17july.pdf"
                   className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium hover:scale-105 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group"
                 >
@@ -119,7 +125,7 @@ const AboutSection: React.FC = () => {
           </div>
 
           {/* Statistics */}
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className={`grid md:grid-cols-3 gap-6 scroll-animate ${statsVisible ? 'animate-scale-in' : ''}`} ref={statsRef}>
             <div className="text-center p-6 bg-blue-50 dark:bg-blue-900/20 rounded-lg hover:shadow-xl hover:-translate-y-3 hover:bg-blue-100 dark:hover:bg-blue-800/30 transition-all duration-500 cursor-pointer group border border-transparent hover:border-blue-300 dark:hover:border-blue-600">
               <div className="text-3xl font-bold text-blue-600 mb-2 group-hover:scale-125 transition-transform duration-300">5+</div>
               <div className="text-gray-600 dark:text-gray-300 font-medium">Years of Experience</div>

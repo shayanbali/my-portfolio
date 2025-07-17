@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Mail, Phone, Github, Linkedin, Send, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const ContactSection: React.FC = () => {
+  const [titleRef, titleVisible] = useScrollAnimation();
+  const [contentRef, contentVisible] = useScrollAnimation();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -71,10 +75,10 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="pt-24 pb-20 bg-white dark:bg-gray-900">
+    <section id="contact" className="pt-24 pb-20 bg-white dark:bg-gray-900" ref={titleRef}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 scroll-animate ${titleVisible ? 'animate-fade-in-up' : ''}`}>
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Get In Touch
             </h2>
@@ -84,7 +88,7 @@ const ContactSection: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className={`grid md:grid-cols-2 gap-12 scroll-animate ${contentVisible ? 'animate-fade-in-up' : ''}`} ref={contentRef}>
             <div className="space-y-8">
               <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg hover:bg-white dark:hover:bg-gray-700 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 border border-transparent hover:border-blue-200 dark:hover:border-blue-800 group">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">

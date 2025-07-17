@@ -1,7 +1,11 @@
 import React from 'react';
 import { BookOpen, Calendar, MapPin, Award, ExternalLink } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const PublicationsSection: React.FC = () => {
+  const [titleRef, titleVisible] = useScrollAnimation();
+  const [contentRef, contentVisible] = useScrollAnimation();
+
   const publications = [
     {
       title: 'South Azerbaijani ASR',
@@ -59,17 +63,17 @@ const PublicationsSection: React.FC = () => {
   };
 
   return (
-    <section id="publications" className="pt-24 pb-20 bg-white dark:bg-gray-900">
+    <section id="publications" className="pt-24 pb-20 bg-white dark:bg-gray-900" ref={titleRef}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 scroll-animate ${titleVisible ? 'animate-fade-in-up' : ''}`}>
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Publications & Talks
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
           </div>
 
-          <div className="space-y-8">
+          <div className={`space-y-8 scroll-animate ${contentVisible ? 'animate-fade-in-left' : ''}`} ref={contentRef}>
             {publications.map((pub, index) => (
               <div key={index} className="relative">
                 <div className="flex items-start space-x-6">

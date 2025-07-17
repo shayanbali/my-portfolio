@@ -1,7 +1,11 @@
 import React from 'react';
 import { GraduationCap, Calendar, MapPin, Award, BookOpen } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const EducationSection: React.FC = () => {
+  const [titleRef, titleVisible] = useScrollAnimation();
+  const [contentRef, contentVisible] = useScrollAnimation();
+
   const education = [
     {
       degree: 'M.Sc. in Advanced Computing',
@@ -34,17 +38,17 @@ const EducationSection: React.FC = () => {
   ];
 
   return (
-    <section id="education" className="pt-24 pb-20 bg-gray-50 dark:bg-gray-800">
+    <section id="education" className="pt-24 pb-20 bg-gray-50 dark:bg-gray-800" ref={titleRef}>
       <div className="container mx-auto px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 scroll-animate ${titleVisible ? 'animate-fade-in-up' : ''}`}>
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Education
             </h2>
             <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
           </div>
 
-          <div className="space-y-12">
+          <div className={`space-y-12 scroll-animate ${contentVisible ? 'animate-fade-in-up' : ''}`} ref={contentRef}>
             {education.map((edu, index) => (
               <div key={index} className="relative">
                 <div className="flex items-start space-x-6">
