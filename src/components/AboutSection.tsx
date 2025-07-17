@@ -24,7 +24,7 @@ const AboutSection: React.FC = () => {
               <div className="relative">
                 <div className="w-64 h-64 rounded-full overflow-hidden shadow-2xl ring-4 ring-blue-100 dark:ring-blue-900/30 hover:ring-8 hover:ring-blue-200 dark:hover:ring-blue-800/50 transition-all duration-500 hover:scale-105 cursor-pointer group">
                   <img
-                    src="public/photo64.jpg"
+                    src="my-portfolio/public/photo64.jpg"
                     alt="Shayan Bali - AI Researcher & Software Engineer"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     style={{ objectPosition: '50% 30%' }}
@@ -62,7 +62,7 @@ const AboutSection: React.FC = () => {
               {/* CV Download Button */}
               <div className="pt-4">
                 <a
-                  href="public/Shayan_Bali_CV_17july.pdf"
+                  href="my-portfolio/public/Shayan_Bali_CV_17july.pdf"
                   download="Shayan_Bali_CV_17july.pdf"
                   className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium hover:scale-105 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group"
                 >

@@ -6,7 +6,7 @@
   "homepage": "https://shayanbali.github.io/my-portfolio/",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d src",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
