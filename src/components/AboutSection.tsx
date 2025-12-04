@@ -43,11 +43,11 @@ const AboutSection: React.FC = () => {
                 </h3>
                 <div className="space-y-4">
                   <a 
-                    href="mailto:shayan.bali@kcl.ac.uk"
+                    href="mailto:shayanbali@gmail.com"
                     className="flex items-center space-x-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 text-base p-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:translate-x-2 group"
                   >
                     <Mail size={18} className="text-blue-600 group-hover:scale-110 transition-transform duration-300" />
-                    <span>shayan.bali@kcl.ac.uk</span>
+                    <span>shayanbali@gmail.com</span>
                   </a>
                   <a 
                     href="tel:+447376446018"
