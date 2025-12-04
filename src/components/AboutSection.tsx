@@ -95,7 +95,7 @@ const AboutSection: React.FC = () => {
               {/* Description */}
               <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg hover:bg-white dark:hover:bg-gray-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-transparent hover:border-blue-200 dark:hover:border-blue-800">
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                  I'm a postgraduate student in Advanced Computing at King's College London, graduating in September 2025. I specialize in AI, NLP, and Large Language Models, with hands-on experience across both academic research and industry. My work spans a range of AI and software engineering projects — from developing advanced NLP systems to contributing to applied research in top-tier labs and tech companies.
+                  I am an AI/ML researcher and engineer with experience across deep learning, NLP, and large language models, combining academic research with real-world machine learning deployments. Over the past four years, I have worked on projects spanning text classification, NER, summarization, multimodal understanding, transformer-based model design, multimodal large Language Model evaluation, explainable AI, and responsible AI. I have professional experience delivering AI systems into production environments—most notably building NLP pipelines for a brokerage serving seven million users—and academic experience contributing to publications at NAACL, AACL, COLING. I’m passionate about building practical, high-impact AI solutions, exploring modern LLM architectures, and working in collaborative engineering and research teams.
                 </p>
               </div>
 
