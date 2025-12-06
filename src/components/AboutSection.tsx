@@ -62,8 +62,8 @@ const AboutSection: React.FC = () => {
               {/* CV Download Button */}
               <div className="pt-4">
                 <a
-                  href="Shayan_Bali_CV_17july.pdf"
-                  download="Shayan_Bali_CV_17july.pdf"
+                  href="shayan_bali_4nov.pdf"
+                  download="shayan_bali_4nov.pdf"
                   className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium hover:scale-105 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group"
                 >
                   <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
