@@ -25,7 +25,7 @@ const PublicationsSection: React.FC = () => {
       type: 'Conference Paper',
       description: 'A Persian Bias Benchmark Dataset Curated with Human-AI Collaboration for Large Language Models.',
       authors: 'Shayan Bali, et al.',
-      color: 'bg-orange-600',
+      color: 'bg-red-600',
       link: 'https://arxiv.org/pdf/2510.19616'
     },
     {
