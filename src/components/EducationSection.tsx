@@ -12,7 +12,7 @@ const EducationSection: React.FC = () => {
       institution: 'King\'s College London',
       period: 'Sep 2024 – Present',
       location: 'London, UK',
-      grade: 'Current Average Grade: 72.88 (Distinction)',
+      grade: '75 (Distinction)',
       coursework: [
         'AI Reasoning and Decision Making',
         'AI Planning',

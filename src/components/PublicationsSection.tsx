@@ -8,6 +8,16 @@ const PublicationsSection: React.FC = () => {
 
   const publications = [
     {
+      title: 'Detecting Subtle Biases in LLMs',
+      venue: 'EACL 2025',
+      year: '2025',
+      status: 'Potentially Accepted',
+      type: 'Conference Paper',
+      description: 'A comprehensive study on identifying and mitigating subtle biases in Large Language Models.',
+      authors: 'Shayan Bali, et al.',
+      color: 'bg-blue-600'
+    },
+    {
       title: 'South Azerbaijani ASR',
       venue: 'IJCNLP-AACL',
       year: '2025',
@@ -18,14 +28,14 @@ const PublicationsSection: React.FC = () => {
       color: 'bg-orange-600'
     },
     {
-      title: 'Detecting Subtle Biases in LLMs',
-      venue: 'EMNLP 2025',
+      title: 'MELAC',
+      venue: 'IJCNLP-AACL',
       year: '2025',
-      status: 'Submitted',
+      status: 'Accepted',
       type: 'Conference Paper',
-      description: 'A comprehensive study on identifying and mitigating subtle biases in Large Language Models.',
+      description: 'Massive Evaluation of Large Language Models with Alignment of Culture in Persian Language.',
       authors: 'Shayan Bali, et al.',
-      color: 'bg-blue-600'
+      color: 'bg-yellow-600'
     },
     {
       title: 'Persian in a Court',
