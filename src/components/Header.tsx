@@ -71,7 +71,7 @@ const Header: React.FC = () => {
           {/* Contact Icons - Desktop */}
           <div className="hidden lg:flex items-center space-x-3 ml-6">
             <a
-              href="mailto:shayan.bali@kcl.ac.uk"
+              href="mailto:shayanbali@gmail.com"
               className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 hover:scale-110 hover:-translate-y-1 p-2 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20"
             >
               <Mail size={18} className="hover:scale-110 transition-transform duration-300" />
@@ -132,7 +132,7 @@ const Header: React.FC = () => {
               ))}
               <div className="flex space-x-4 pt-4 border-t border-gray-200 dark:border-gray-700">
                 <a
-                  href="mailto:shayan.bali@kcl.ac.uk"
+                  href="mailto:shayanbali@gmail.com"
                   className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   <Mail size={18} />
