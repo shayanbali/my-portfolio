@@ -71,7 +71,7 @@ const ContactSection: React.FC = () => {
     const body = encodeURIComponent(
       `Hi Shayan,\n\n${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`
     );
-    window.open(`mailto:shayan.bali@kcl.ac.uk?subject=${subject}&body=${body}`);
+    window.open(`mailto:shayanbali@gmail.com?subject=${subject}&body=${body}`);
   };
 
   return (
@@ -101,10 +101,10 @@ const ContactSection: React.FC = () => {
                     <div>
                       <p className="text-gray-600 dark:text-gray-300">Email</p>
                       <a 
-                        href="mailto:shayan.bali@kcl.ac.uk"
+                        href="mailto:shayanbali@gmail.com"
                         className="text-blue-600 dark:text-blue-400 hover:underline"
                       >
-                        shayan.bali@kcl.ac.uk
+                        shayanbali@gmail.com
                       </a>
                     </div>
                   </div>
@@ -155,7 +155,7 @@ const ContactSection: React.FC = () => {
                     <Linkedin size={24} className="group-hover/icon:scale-110 transition-transform duration-300" />
                   </a>
                   <a
-                    href="mailto:shayan.bali@kcl.ac.uk"
+                    href="mailto:shayanbali@gmail.com"
                     className="flex items-center justify-center w-12 h-12 bg-green-600 text-white rounded-lg hover:bg-green-700 hover:scale-110 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group/icon"
                   >
                     <Mail size={24} className="group-hover/icon:scale-110 transition-transform duration-300" />
