@@ -10,7 +10,7 @@ const EducationSection: React.FC = () => {
     {
       degree: 'M.Sc. in Advanced Computing',
       institution: 'King\'s College London',
-      period: 'Sep 2024 – Present',
+      period: 'Sep 2024 – Sep 2025',
       location: 'London, UK',
       grade: '75 (Distinction)',
       coursework: [
@@ -23,7 +23,7 @@ const EducationSection: React.FC = () => {
         'Data Mining',
         'Intro to Data Visualization'
       ],
-      thesis: 'Making Audio and Video Media More Accessible to Users with Complex Communication Needs — developing AI tools to enhance accessibility for individuals with cognitive and communication impairments.',
+      thesis: 'Making Visual Content Accessible: A Full-Stack Framework for Interactive Mind-Map Summarization Using AI and Large Language Models (LLMs).',
       color: 'bg-blue-600'
     },
     {
@@ -32,7 +32,7 @@ const EducationSection: React.FC = () => {
       period: 'Sep 2019 – Apr 2024',
       location: 'Tehran, Iran',
       grade: 'GPA: 18.60/20 (3.94/4) — Ranked 10th out of 154 students (Top 6%)',
-      thesis: 'Disease Diagnosis based on Brain Functional Network Analysis, with a focus on Graph Neural Networks',
+      thesis: 'Disease Diagnosis based on Brain Functional Network Analysis Focusing on Graph Neural Networks.',
       color: 'bg-green-600'
     }
   ];

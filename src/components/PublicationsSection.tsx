@@ -18,14 +18,26 @@ const PublicationsSection: React.FC = () => {
       color: 'bg-blue-600'
     },
     {
-      title: 'South Azerbaijani ASR',
-      venue: 'IJCNLP-AACL',
-      year: '2025',
+      title: 'PBBQ',
+      venue: 'LREC',
+      year: '2026',
       status: 'Submitted',
       type: 'Conference Paper',
-      description: 'Automatic Speech Recognition system for low-resource South Azerbaijani language.',
+      description: 'A Persian Bias Benchmark Dataset Curated with Human-AI Collaboration for Large Language Models.',
       authors: 'Shayan Bali, et al.',
-      color: 'bg-orange-600'
+      color: 'bg-orange-600',
+      link: 'https://arxiv.org/pdf/2510.19616'
+    },
+    {
+      title: 'PerHalluEval',
+      venue: 'LREC',
+      year: '2026',
+      status: 'Submitted',
+      type: 'Conference Paper',
+      description: 'A Comprehensive Evaluation of Persian Hallucination Detection in Large Language Models.',
+      authors: 'Shayan Bali, et al.',
+      color: 'bg-orange-600',
+      link: 'https://arxiv.org/pdf/2509.21104'
     },
     {
       title: 'MELAC',
@@ -35,7 +47,8 @@ const PublicationsSection: React.FC = () => {
       type: 'Conference Paper',
       description: 'Massive Evaluation of Large Language Models with Alignment of Culture in Persian Language.',
       authors: 'Shayan Bali, et al.',
-      color: 'bg-yellow-600'
+      color: 'bg-yellow-600',
+      link: 'https://arxiv.org/pdf/2508.00673'
     },
     {
       title: 'Persian in a Court',
