@@ -2,7 +2,99 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    background-color: #f7f9fb;
+    background-attachment: fixed;
+    color: #0f172a;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  .dark body {
+    background-color: #020617;
+    background-attachment: fixed;
+    color: #f8fafc;
+  }
+}
+
 @layer utilities {
+  @keyframes ambientBackground {
+    0% {
+      background-position: 0% 28%, 100% 20%, 50% 100%, 50% 50%;
+    }
+    50% {
+      background-position: 100% 72%, 0% 85%, 50% 0%, 50% 50%;
+    }
+    100% {
+      background-position: 0% 28%, 100% 20%, 50% 100%, 50% 50%;
+    }
+  }
+
+  @keyframes ambientSweep {
+    0%, 100% {
+      transform: translate3d(-8%, -4%, 0) rotate(0deg);
+      opacity: 0.62;
+    }
+    50% {
+      transform: translate3d(8%, 4%, 0) rotate(2deg);
+      opacity: 0.82;
+    }
+  }
+
+  @keyframes gradientFlow {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes floatSubtle {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -8px, 0);
+    }
+  }
+
+  @keyframes contactAurora {
+    0% {
+      transform: translate3d(-10%, -8%, 0) scale(1) rotate(0deg);
+    }
+    35% {
+      transform: translate3d(6%, 4%, 0) scale(1.04) rotate(1deg);
+    }
+    70% {
+      transform: translate3d(-2%, 7%, 0) scale(1.02) rotate(-1deg);
+    }
+    100% {
+      transform: translate3d(-10%, -8%, 0) scale(1) rotate(0deg);
+    }
+  }
+
+  @keyframes contactBaseShift {
+    0% {
+      background-position: 0% 30%, 100% 20%, 50% 90%, 0% 50%;
+    }
+    50% {
+      background-position: 100% 70%, 0% 85%, 50% 10%, 100% 50%;
+    }
+    100% {
+      background-position: 0% 30%, 100% 20%, 50% 90%, 0% 50%;
+    }
+  }
+
+  @keyframes contactPatternDrift {
+    0% {
+      background-position: 0 0, 0 0, 0 0;
+    }
+    100% {
+      background-position: 96px 48px, -96px 96px, 160px 0;
+    }
+  }
+
   /* Floating orb animations */
   @keyframes float-1 {
     0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
@@ -129,6 +221,289 @@
   .hover-lift:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .section-kicker {
+    @apply text-sm font-semibold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-5xl font-black text-slate-950 dark:text-white;
+  }
+
+  .section-rule {
+    @apply mt-5 h-1 w-24 rounded-full bg-gradient-to-r from-teal-500 via-blue-600 to-amber-500;
+    background-size: 220% 100%;
+    animation: gradientFlow 5s ease-in-out infinite;
+  }
+
+  .polished-panel {
+    @apply relative overflow-hidden rounded-lg border border-white/70 bg-white/90 shadow-[0_24px_70px_rgba(15,23,42,0.10)] backdrop-blur transition-all duration-500 dark:border-white/10 dark:bg-slate-900/80 dark:shadow-[0_24px_70px_rgba(0,0,0,0.35)];
+  }
+
+  .polished-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.56) 46%, transparent 72%);
+    transform: translateX(-120%);
+    transition: transform 0.7s ease;
+  }
+
+  .polished-panel:hover::after {
+    transform: translateX(120%);
+  }
+
+  .dark .polished-panel::after {
+    background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.10) 46%, transparent 72%);
+  }
+
+  .float-subtle {
+    animation: floatSubtle 6s ease-in-out infinite;
+  }
+
+  .interactive-lift {
+    transform-style: preserve-3d;
+  }
+
+  .interactive-lift:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 28px 80px rgba(15, 23, 42, 0.16);
+  }
+
+  .dark .interactive-lift:hover {
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+  }
+
+  .site-shell {
+    @apply relative min-h-screen overflow-hidden text-slate-950 dark:text-white;
+    background-color: #e8f4f6;
+    background-image:
+      radial-gradient(900px 620px at 14% 10%, rgba(20, 184, 166, 0.30), transparent 62%),
+      radial-gradient(820px 620px at 86% 20%, rgba(37, 99, 235, 0.24), transparent 60%),
+      radial-gradient(820px 620px at 48% 92%, rgba(245, 158, 11, 0.18), transparent 66%),
+      linear-gradient(135deg, #e8f4f6 0%, #f5fbff 42%, #eef7f2 100%);
+    background-size: 150% 150%, 150% 150%, 150% 150%, 100% 100%;
+    animation: ambientBackground 20s ease-in-out infinite;
+  }
+
+  .site-shell::before {
+    content: "";
+    position: fixed;
+    inset: -18%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(105deg, transparent 18%, rgba(255, 255, 255, 0.46) 46%, transparent 72%),
+      linear-gradient(18deg, transparent 24%, rgba(20, 184, 166, 0.18) 48%, transparent 70%);
+    filter: blur(24px);
+    animation: ambientSweep 16s ease-in-out infinite;
+  }
+
+  .site-shell::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.28), transparent 72%);
+  }
+
+  .dark .site-shell {
+    background-color: #020617;
+    background-image:
+      linear-gradient(125deg, rgba(20, 184, 166, 0.14), transparent 34%),
+      linear-gradient(305deg, rgba(37, 99, 235, 0.18), transparent 38%),
+      linear-gradient(180deg, #020617 0%, #0b1220 50%, #111827 100%);
+  }
+
+  .dark .site-shell::before {
+    background:
+      linear-gradient(105deg, transparent 18%, rgba(148, 163, 184, 0.08) 46%, transparent 72%),
+      linear-gradient(18deg, transparent 24%, rgba(20, 184, 166, 0.10) 48%, transparent 70%);
+  }
+
+  .site-shell > header,
+  .site-shell > main,
+  .site-shell > footer {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-shell,
+    .site-shell::before,
+    .section-rule,
+    .float-subtle {
+      animation: none;
+    }
+
+    .polished-panel::after {
+      display: none;
+    }
+  }
+
+  .section-surface {
+    @apply relative isolate overflow-hidden bg-white/60 backdrop-blur-sm dark:bg-slate-950/70;
+    background-image:
+      radial-gradient(760px 500px at 12% 26%, rgba(20, 184, 166, 0.22), transparent 62%),
+      radial-gradient(720px 480px at 88% 22%, rgba(37, 99, 235, 0.18), transparent 64%),
+      radial-gradient(680px 460px at 50% 90%, rgba(245, 158, 11, 0.12), transparent 68%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(240, 249, 255, 0.66) 48%, rgba(236, 253, 245, 0.62));
+    background-size: 150% 150%, 150% 150%, 150% 150%, 200% 200%;
+    animation: contactBaseShift 14s ease-in-out infinite;
+  }
+
+  .section-surface-muted {
+    @apply relative isolate overflow-hidden bg-white/50 backdrop-blur-sm dark:bg-slate-900/70;
+    background-image:
+      radial-gradient(760px 500px at 14% 24%, rgba(20, 184, 166, 0.26), transparent 62%),
+      radial-gradient(720px 480px at 86% 20%, rgba(37, 99, 235, 0.20), transparent 64%),
+      radial-gradient(680px 460px at 52% 88%, rgba(245, 158, 11, 0.14), transparent 68%),
+      linear-gradient(135deg, rgba(248, 250, 252, 0.58), rgba(239, 246, 255, 0.64) 48%, rgba(240, 253, 250, 0.62));
+    background-size: 150% 150%, 150% 150%, 150% 150%, 200% 200%;
+    animation: contactBaseShift 16s ease-in-out infinite reverse;
+  }
+
+  .section-surface,
+  .section-surface-muted {
+    border-top: 1px solid rgba(15, 23, 42, 0.10);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.72);
+  }
+
+  .section-surface::before,
+  .section-surface-muted::before {
+    content: "";
+    position: absolute;
+    inset: -22%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      conic-gradient(from 120deg at 50% 50%, rgba(20, 184, 166, 0.20), rgba(37, 99, 235, 0.16), rgba(245, 158, 11, 0.12), rgba(20, 184, 166, 0.20)),
+      radial-gradient(circle at 18% 22%, rgba(20, 184, 166, 0.24), transparent 30%),
+      radial-gradient(circle at 84% 18%, rgba(37, 99, 235, 0.22), transparent 31%);
+    filter: blur(40px);
+    opacity: 0.72;
+    animation: contactAurora 24s ease-in-out infinite;
+  }
+
+  .section-surface::after,
+  .section-surface-muted::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(120deg, rgba(15, 23, 42, 0.030) 1px, transparent 1px),
+      linear-gradient(30deg, rgba(20, 184, 166, 0.050) 1px, transparent 1px),
+      radial-gradient(circle at center, rgba(37, 99, 235, 0.070) 0 1px, transparent 2px);
+    background-size: 80px 80px, 112px 112px, 36px 36px;
+    mask-image: radial-gradient(circle at 50% 38%, rgba(0, 0, 0, 0.34), transparent 75%);
+    opacity: 0.64;
+    animation: contactPatternDrift 40s linear infinite;
+  }
+
+  .section-surface > *,
+  .section-surface-muted > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .dark .section-surface,
+  .dark .section-surface-muted {
+    border-top-color: rgba(255, 255, 255, 0.10);
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+    background-image:
+      radial-gradient(760px 500px at 12% 26%, rgba(20, 184, 166, 0.16), transparent 62%),
+      radial-gradient(720px 480px at 88% 22%, rgba(37, 99, 235, 0.16), transparent 64%),
+      radial-gradient(680px 460px at 50% 90%, rgba(245, 158, 11, 0.08), transparent 68%),
+      linear-gradient(135deg, rgba(15, 23, 42, 0.76), rgba(8, 47, 73, 0.56) 48%, rgba(2, 6, 23, 0.78));
+  }
+
+  .dark .section-surface::before,
+  .dark .section-surface-muted::before {
+    background:
+      conic-gradient(from 120deg at 50% 50%, rgba(20, 184, 166, 0.13), rgba(37, 99, 235, 0.15), rgba(245, 158, 11, 0.08), rgba(20, 184, 166, 0.13)),
+      radial-gradient(circle at 18% 22%, rgba(20, 184, 166, 0.16), transparent 30%),
+      radial-gradient(circle at 84% 18%, rgba(37, 99, 235, 0.18), transparent 31%);
+  }
+
+  .contact-dynamic {
+    isolation: isolate;
+    background-image:
+      radial-gradient(800px 560px at 12% 24%, rgba(20, 184, 166, 0.34), transparent 62%),
+      radial-gradient(760px 540px at 88% 28%, rgba(37, 99, 235, 0.30), transparent 64%),
+      radial-gradient(700px 520px at 52% 88%, rgba(245, 158, 11, 0.20), transparent 68%),
+      linear-gradient(135deg, rgba(236, 253, 245, 0.88), rgba(219, 234, 254, 0.84) 45%, rgba(240, 249, 255, 0.88));
+    background-size: 150% 150%, 150% 150%, 150% 150%, 200% 200%;
+    animation: contactBaseShift 10s ease-in-out infinite;
+  }
+
+  .contact-dynamic::before {
+    content: "";
+    position: absolute;
+    inset: -24%;
+    z-index: -2;
+    pointer-events: none;
+    background:
+      conic-gradient(from 120deg at 50% 50%, rgba(20, 184, 166, 0.34), rgba(37, 99, 235, 0.28), rgba(245, 158, 11, 0.20), rgba(20, 184, 166, 0.34)),
+      radial-gradient(circle at 18% 22%, rgba(20, 184, 166, 0.48), transparent 30%),
+      radial-gradient(circle at 84% 18%, rgba(37, 99, 235, 0.38), transparent 31%),
+      radial-gradient(circle at 58% 86%, rgba(245, 158, 11, 0.26), transparent 34%);
+    filter: blur(44px);
+    opacity: 0.80;
+    animation: contactAurora 20s ease-in-out infinite;
+  }
+
+  .contact-dynamic::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(120deg, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+      linear-gradient(30deg, rgba(20, 184, 166, 0.075) 1px, transparent 1px),
+      radial-gradient(circle at center, rgba(37, 99, 235, 0.10) 0 1px, transparent 2px);
+    background-size: 72px 72px, 96px 96px, 32px 32px;
+    mask-image: radial-gradient(circle at 50% 38%, rgba(0, 0, 0, 0.42), transparent 72%);
+    opacity: 0.68;
+    animation: contactPatternDrift 36s linear infinite;
+  }
+
+  .dark .contact-dynamic {
+    background-image:
+      radial-gradient(800px 560px at 12% 24%, rgba(20, 184, 166, 0.24), transparent 62%),
+      radial-gradient(760px 540px at 88% 28%, rgba(37, 99, 235, 0.24), transparent 64%),
+      radial-gradient(700px 520px at 52% 88%, rgba(245, 158, 11, 0.12), transparent 68%),
+      linear-gradient(135deg, rgba(15, 23, 42, 0.90), rgba(8, 47, 73, 0.76) 48%, rgba(2, 6, 23, 0.92));
+  }
+
+  .dark .contact-dynamic::before {
+    background:
+      radial-gradient(circle at 18% 22%, rgba(20, 184, 166, 0.24), transparent 30%),
+      radial-gradient(circle at 84% 18%, rgba(37, 99, 235, 0.30), transparent 31%),
+      radial-gradient(circle at 58% 86%, rgba(245, 158, 11, 0.15), transparent 34%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .section-surface,
+    .section-surface-muted,
+    .section-surface::before,
+    .section-surface-muted::before,
+    .section-surface::after,
+    .section-surface-muted::after,
+    .contact-dynamic::before,
+    .contact-dynamic::after,
+    .contact-dynamic {
+      animation: none;
+    }
   }
   
   /* Smooth scrolling */

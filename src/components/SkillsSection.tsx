@@ -11,7 +11,7 @@ const SkillsSection: React.FC = () => {
     {
       title: 'Programming Languages',
       icon: <Code size={24} />,
-      skills: ['Python', 'Java', 'C'],
+      skills: ['Python', 'Java', 'C', 'TypeScript'],
       color: 'bg-blue-600'
     },
     {
@@ -44,7 +44,7 @@ const SkillsSection: React.FC = () => {
   ];
 
   return (
-    <section id="skills" className="pt-24 pb-20 bg-gray-50 dark:bg-gray-800" ref={titleRef}>
+    <section id="skills" className="section-surface-muted pt-24 pb-20" ref={titleRef}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className={`text-center mb-12 scroll-animate ${titleVisible ? 'animate-fade-in-up' : ''}`}>

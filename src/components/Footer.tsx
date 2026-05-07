@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
           
           <div className="flex items-center space-x-6">
             <p className="text-gray-400 text-sm">
-              Last updated: January 2025
+              Last updated: May 2026
             </p>
             <button
               onClick={scrollToTop}

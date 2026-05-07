@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, ExternalLink, Github } from 'lucide-react';
+import { Code, Github } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const ProjectsSection: React.FC = () => {
@@ -58,38 +58,39 @@ const ProjectsSection: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="pt-24 pb-20 bg-gray-50 dark:bg-gray-800" ref={titleRef}>
+    <section id="projects" className="section-surface-muted pt-24 pb-20" ref={titleRef}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className={`text-center mb-12 scroll-animate ${titleVisible ? 'animate-fade-in-up' : ''}`}>
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <p className="section-kicker mb-3">Selected work</p>
+            <h2 className="section-title">
               Projects
             </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto mb-8"></div>
+            <div className="section-rule mx-auto mb-8"></div>
           </div>
 
           <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-animate ${contentVisible ? 'animate-scale-in' : ''}`} ref={contentRef}>
             {projects.map((project, index) => (
-              <div key={index} className="bg-white dark:bg-gray-900 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 overflow-hidden border border-transparent hover:border-blue-200 dark:hover:border-blue-800 group cursor-pointer">
-                <div className={`h-2 ${project.color} group-hover:h-4 transition-all duration-300`}></div>
+              <div key={index} className="polished-panel overflow-hidden hover:-translate-y-3 transition-all duration-500 group cursor-pointer">
+                <div className={`h-1.5 ${project.color} group-hover:h-3 transition-all duration-300`}></div>
                 
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-all duration-300">
+                    <span className="px-3 py-1 bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-slate-300 text-sm rounded-lg group-hover:bg-teal-50 dark:group-hover:bg-teal-400/10 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-all duration-300">
                       {project.category}
                     </span>
-                    <Code size={20} className="text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
+                    <Code size={20} className="text-slate-500 dark:text-slate-400 group-hover:text-teal-600 dark:group-hover:text-teal-300 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                  <h3 className="text-xl font-black text-slate-950 dark:text-white mb-2 group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors duration-300">
                     {project.title}
                   </h3>
                   
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 font-medium">
+                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-3 font-semibold">
                     {project.company}
                   </p>
                   
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                     {project.description}
                   </p>
                   
@@ -97,7 +98,7 @@ const ProjectsSection: React.FC = () => {
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs rounded hover:bg-blue-100 dark:hover:bg-blue-800/50 hover:scale-105 transition-all duration-200 cursor-pointer"
+                        className="px-2 py-1 bg-white dark:bg-white/5 text-slate-600 dark:text-slate-300 text-xs rounded ring-1 ring-slate-200 dark:ring-white/10 hover:text-teal-700 dark:hover:text-teal-300 transition-all duration-200 cursor-pointer"
                       >
                         {tech}
                       </span>
@@ -110,7 +111,7 @@ const ProjectsSection: React.FC = () => {
                         href="https://github.com/shayanbali/uk-football-visualizer"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                        className="flex items-center space-x-2 text-slate-600 dark:text-slate-400 hover:text-teal-700 dark:hover:text-teal-300 transition-all duration-300 hover:-translate-y-1 p-2 rounded-lg hover:bg-teal-50 dark:hover:bg-teal-400/10"
                       >
                         <Github size={16} className="hover:scale-110 transition-transform duration-300" />
                         <span className="text-sm">Code</span>
@@ -120,7 +121,7 @@ const ProjectsSection: React.FC = () => {
                         href="https://github.com/shayanbali/Game-Recommender-with-Spark"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                        className="flex items-center space-x-2 text-slate-600 dark:text-slate-400 hover:text-teal-700 dark:hover:text-teal-300 transition-all duration-300 hover:-translate-y-1 p-2 rounded-lg hover:bg-teal-50 dark:hover:bg-teal-400/10"
                       >
                         <Github size={16} className="hover:scale-110 transition-transform duration-300" />
                         <span className="text-sm">Code</span>
@@ -131,7 +132,7 @@ const ProjectsSection: React.FC = () => {
                           href="https://github.com/shayanbali/image-classification"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+                          className="flex items-center space-x-2 text-slate-600 dark:text-slate-400 hover:text-teal-700 dark:hover:text-teal-300 transition-all duration-300 hover:-translate-y-1 p-2 rounded-lg hover:bg-teal-50 dark:hover:bg-teal-400/10"
                         >
                           <Github size={16} className="hover:scale-110 transition-transform duration-300" />
                           <span className="text-sm">Code</span>

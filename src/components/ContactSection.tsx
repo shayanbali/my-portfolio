@@ -75,7 +75,7 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="pt-24 pb-20 bg-white dark:bg-gray-900" ref={titleRef}>
+    <section id="contact" className="section-surface contact-dynamic pt-24 pb-20" ref={titleRef}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className={`text-center mb-12 scroll-animate ${titleVisible ? 'animate-fade-in-up' : ''}`}>
