@@ -6,6 +6,7 @@ const AboutSection: React.FC = () => {
   const [titleRef, titleVisible] = useScrollAnimation();
   const [contentRef, contentVisible] = useScrollAnimation();
   const [statsRef, statsVisible] = useScrollAnimation();
+  const baseUrl = import.meta.env.BASE_URL;
 
   return (
     <section id="about" className="section-surface-muted pt-28 pb-20" ref={titleRef}>
@@ -25,14 +26,14 @@ const AboutSection: React.FC = () => {
               <div className="relative polished-panel interactive-lift float-subtle p-4">
                 <div className="w-64 h-64 rounded-lg overflow-hidden shadow-2xl ring-1 ring-white/80 dark:ring-white/10 hover:scale-[1.02] transition-all duration-500 cursor-pointer group">
                   <img
-                    src="/photo64.jpg"
+                    src={`${baseUrl}photo64.jpg`}
                     alt="Shayan Bali - AI Researcher & Software Engineer"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     style={{ objectPosition: '50% 30%' }}
                   />
                   <div className="absolute inset-4 rounded-lg bg-gradient-to-t from-slate-950/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-                <div className="absolute -bottom-3 -right-3 w-14 h-14 bg-emerald-500 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/30 ring-4 ring-white dark:ring-slate-950 transition-all duration-300 float-subtle">
+                <div className="absolute bottom-4 right-4 z-10 w-12 h-12 bg-emerald-500 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/30 ring-4 ring-white dark:ring-slate-950 transition-all duration-300 float-subtle">
                   <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
                 </div>
               </div>
@@ -63,7 +64,7 @@ const AboutSection: React.FC = () => {
               {/* CV Download Button */}
               <div className="pt-4">
                 <a
-                  href="/Shayan_Bali_CV_final.pdf"
+                  href={`${baseUrl}Shayan_Bali_CV_final.pdf`}
                   download="Shayan_Bali_CV_final.pdf"
                   className="inline-flex items-center space-x-2 bg-slate-950 hover:bg-teal-700 dark:bg-white dark:text-slate-950 dark:hover:bg-teal-200 text-white px-6 py-3 rounded-lg font-semibold hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group"
                 >
